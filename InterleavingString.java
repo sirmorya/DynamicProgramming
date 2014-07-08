@@ -1,4 +1,4 @@
-package dp;
+package DynamicProgramming;
 
 /**
  * This class is used to identify the interleaving of strings using dynamic

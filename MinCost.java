@@ -1,4 +1,4 @@
-package dp;
+package DynamicProgramming;
 
 /**
  * This class is used to find the minimum distance required to reach a co-ordinate(m,n) from (0,0) in a 2 D matrix

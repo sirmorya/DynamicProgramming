@@ -1,3 +1,4 @@
+package DynamicProgramming;
 /**
  * This class provides both the solutions; i.e. naive recursive and DP based;
  * for the classic Dice throw problem.

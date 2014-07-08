@@ -1,4 +1,4 @@
-package dp;
+package DynamicProgramming;
 
 /**
  * This class is used to determine the rectangle having the highest sum of elements  in a 2-D matrix.
