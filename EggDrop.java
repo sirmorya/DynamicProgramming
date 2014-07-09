@@ -47,9 +47,45 @@ public class EggDrop {
 		return min + 1;
 	}
 	
+	/**
+	 * DP based approach to find the minimum number of egg drops.
+	 * @param n
+	 * @param k
+	 * @return
+	 */
+	int dpEggDrop(int n, int k){
+		
+		int trials[][] = new int[n + 1][k + 1];
+		int res;
+		
+		//If k in (0,1) then the number of trials is k
+		for(int i = 0; i <= n; i++){
+			trials[i][0] = 0;
+			trials[1][1] = 1;
+		}
+		
+		//If no. of eggs is 1 then no. of trials is k
+		for(int i = 0; i <=k; i++)
+			trials[1][i] = i;
+		
+		//Filling rest of the entries with optimal sub-structure property.
+		for(int i = 2; i <= n; i++){
+			for(int j = 2; j <= k; j++){
+				trials[i][j] = Integer.MAX_VALUE;
+				for(int x = 1; x <= j; x++){
+					res = 1 + Math.max(trials[i - 1][x - 1], trials[i][j - x]);
+					if(res < trials[i][j])
+						trials[i][j] = res;
+				}
+			}
+		}
+		return trials[n][k];
+	}
+	
 	public static void main(String[] args) {
 		
 		System.out.println(new EggDrop().eggDrop(2, 10));
+		System.out.println(new EggDrop().dpEggDrop(2, 10));
 		
 	}
 }
